@@ -7,9 +7,10 @@ function App() {
     return (
         <div>
             <AppHeader />
-            <div className = 'cardstart'>
-                <WordCard value="HELLO" />
+            <div className='cardstart'>
+                <WordCard value="HELLO"/>
             </div>
+           
         </div>
     );
 }

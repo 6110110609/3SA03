@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import CharacterCard from './CharacterCard';
 import _ from 'lodash';
+import './AppHeader.css';
 
-let ans = "HELLO"
+let text = "PLAY GAME"
 let input
+let word
 
 const prepareStateFromWord = (given_word) => {
     let word = given_word.toUpperCase()
@@ -20,7 +22,7 @@ const prepareStateFromWord = (given_word) => {
 export default function WordCard(props) {
 
     const [state, setState] = useState(prepareStateFromWord(props.value))
-    
+
     const activationHandler = c => {
         console.log(`${c} has been activated.`)
 
@@ -31,9 +33,11 @@ export default function WordCard(props) {
         if (guess.length == state.word.length) {
             if (guess == state.word) {
                 console.log('yeah!')
+                text = "YOU WIN!!!"
                 setState({ ...state, guess: '', completed: true })
             } else {
                 console.log('reset')
+                text = "YOU LOSE!!!"
                 setState({ ...state, guess: '', attempt: state.attempt + 1 })
             }
         }
@@ -44,7 +48,6 @@ export default function WordCard(props) {
             <div>
                 <h2>Your answer: {input}</h2>
             </div>
-
             {state.chars.map((c, i) => (
                 <CharacterCard
                     value={c}
@@ -52,6 +55,23 @@ export default function WordCard(props) {
                     activationHandler={activationHandler}
                     attempt={state.attempt} />
             ))}
+            <div>
+                <center>
+                    <button className='button'>
+                        <a href="http://localhost:3000/" >RESET</a>
+                    </button>
+                    <button className={'button'} onClick={() => showans("HELLO")}>
+                        <a>ANSWER</a>
+                    </button>
+                </center>
+            </div>
+            <div className="App-header">
+                <h2>{text}</h2>
+            </div>
         </div>
     );
+}
+
+function showans(word) {
+    alert("The answer is "+word)
 }
