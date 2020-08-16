@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './AppHeader.css';
 import logo from './hangman1.png';

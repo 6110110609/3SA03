@@ -4,3 +4,5 @@ Commit 7-1
 - สร้าง AppHearder.js และ AppHearder.css สำหรับตกแต่งพื้นที่บนหน้าเว็บเกมส์ อัพโหลดรูป hangman1.png ลงไป และแก้ WordCard.js ให้มีการแสดงคำตอบของผู้เล่นเมื่อกดการ์ด
 Commit 7-2
 - สร้างปุ่ม RESET เพื่อรีเฟรชหน้าคำถามใหม่ และ ANSWER เพื่อแสดงคำตอบ พร้อมทั้งสร้าง Text ที่แสดงว่า PLAY GAME เมื่อชนะจะเปลี่ยนเป็นคำว่า YOU WIN!!! ถ้าแพ้แสดงคำว่า YOU LOSE!!!
+Commit 7-3
+- แสดง Attemp โดยปรับที่ Wordcard.js ให้ set.attempt+1 ก่อนที่จะเข้าฟังชันก์ setState เพื่อที่จะได้แสดง Attemp ที่ทำว่าผ่านไปกี่ครั้ง และย้ายปุ่ม RESET กับ ANSWER มาไว้ยัง App.js

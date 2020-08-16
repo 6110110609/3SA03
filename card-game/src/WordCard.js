@@ -5,7 +5,7 @@ import './AppHeader.css';
 
 let text = "PLAY GAME"
 let input
-let word
+let temp = 0
 
 const prepareStateFromWord = (given_word) => {
     let word = given_word.toUpperCase()
@@ -13,7 +13,7 @@ const prepareStateFromWord = (given_word) => {
     return {
         word,
         chars,
-        attempt: 1,
+        attempt: 0,
         guess: '',
         completed: false
     }
@@ -38,15 +38,19 @@ export default function WordCard(props) {
             } else {
                 console.log('reset')
                 text = "YOU LOSE!!!"
-                setState({ ...state, guess: '', attempt: state.attempt + 1 })
+
+                state.attempt += 1
+                setState({ ...state, guess: '', attempt: state.attempt })
             }
         }
+        temp = state.attempt
     }
 
     return (
         <div>
             <div>
                 <h2>Your answer: {input}</h2>
+                <h2>Attempt: {temp}</h2>
             </div>
             {state.chars.map((c, i) => (
                 <CharacterCard
@@ -55,23 +59,9 @@ export default function WordCard(props) {
                     activationHandler={activationHandler}
                     attempt={state.attempt} />
             ))}
-            <div>
-                <center>
-                    <button className='button'>
-                        <a href="http://localhost:3000/" >RESET</a>
-                    </button>
-                    <button className={'button'} onClick={() => showans("HELLO")}>
-                        <a>ANSWER</a>
-                    </button>
-                </center>
-            </div>
             <div className="App-header">
                 <h2>{text}</h2>
             </div>
         </div>
     );
-}
-
-function showans(word) {
-    alert("The answer is "+word)
 }
