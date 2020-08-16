@@ -1,0 +1,14 @@
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 20vh;
+  }
+  
+.App-header {
+    flex: .2;
+    text-align: center;
+    background-color: #222;
+    padding: 8px;
+    color: #fff;
+}
+  
+  

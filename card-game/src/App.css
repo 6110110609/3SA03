@@ -11,4 +11,9 @@
 .activeCard {
    color: red;
    background: pink;
+   text-align: center;
+}
+
+.cardstart{
+   text-align: center;
 }
